@@ -6,8 +6,7 @@ public class Software {
     private String description;
     private String accessLevel;
 
-    public Software(int softwareId, String name, String description, String accessLevel) {
-        this.softwareId = softwareId;
+    public Software(String name, String description, String accessLevel) {
         this.name = name;
         this.description = description;
         this.accessLevel = accessLevel;
@@ -37,7 +36,7 @@ public class Software {
         this.description = description;
     }
 
-    public String getAccessLevel() {
+    public String getAccessLevels() {
         return accessLevel;
     }
 

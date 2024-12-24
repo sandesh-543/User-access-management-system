@@ -8,7 +8,7 @@ public class Request {
     private String reason;
     private String status;
 
-    public Request(String status, String reason, String accessType, int softwareId, int userId) {
+    public Request(int userId, int softwareId, String accessType, String reason, String status) {
         this.status = status;
         this.reason = reason;
         this.accessType = accessType;

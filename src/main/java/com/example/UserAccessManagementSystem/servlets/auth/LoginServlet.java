@@ -19,12 +19,15 @@ import java.sql.SQLException;
 public class LoginServlet extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         User user = new User(request.getParameter("username"), request.getParameter("password"));
+
         if (user.getUsername() == null || user.getUsername().trim().isEmpty()) {
             throw new ServletException("Username is required and cannot be blank.");
         }
+
         if (!user.getUsername().matches("[A-Za-z0-9_]{3,20}")) {
             throw new ServletException("Username must be alphanumeric with underscores and 3-20 characters long.");
         }
+
         try(Connection connection = DatabaseConnection.getConnection()){
             String sql = "SELECT id, role FROM users where username = ? AND password = ?";
             try(PreparedStatement ps = connection.prepareStatement(sql)){
@@ -55,12 +58,14 @@ public class LoginServlet extends HttpServlet{
                             response.sendRedirect(PagePaths.CREATE_SOFTWARE);
                             break;
                         default:
-                            response.sendRedirect(PagePaths.ERROR_PAGE);                    }
+                            response.sendRedirect(PagePaths.ERROR_PAGE);
+                    }
                 }
                 else{
                     HttpSession session = request.getSession();
                     session.setAttribute("errorMessage", "Invalid username or password.");
-                    response.sendRedirect(PagePaths.ERROR_PAGE);                }
+                    response.sendRedirect(PagePaths.ERROR_PAGE);
+                }
             }
         }
         catch (SQLException e) {

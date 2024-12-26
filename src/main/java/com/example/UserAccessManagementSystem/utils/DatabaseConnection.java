@@ -15,9 +15,9 @@ public class DatabaseConnection {
 
     static {
         // Load configuration from environment variables for security
-        config.setJdbcUrl(System.getenv("DB_URL")); // Example: "jdbc:postgresql://localhost:5432/management"
-        config.setUsername(System.getenv("DB_USER")); // Example: "sandesh"
-        config.setPassword(System.getenv("DB_PASSWORD")); // Example: "12345678"
+        config.setJdbcUrl(System.getenv("jdbc:postgresql://localhost:5432/UserAccessManagement")); // Example: "jdbc:postgresql://localhost:5432/management"
+        config.setUsername(System.getenv("sandesh")); // Example: "sandesh"
+        config.setPassword(System.getenv("12345678")); // Example: "12345678"
 
         // Optional configuration for performance tuning
         config.setMaximumPoolSize(10);         // Maximum number of connections in the pool

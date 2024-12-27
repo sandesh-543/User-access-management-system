@@ -3,4 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
+
+    <!-- Define the SignupServlet -->
+    <servlet>
+        <servlet-name>SignupServlet</servlet-name>
+        <servlet-class>com.example.UserAccessManagementSystem.servlets.auth.SignUpServlet</servlet-class>
+    </servlet>
+
+    <!-- Map the SignupServlet to /signup -->
+    <servlet-mapping>
+        <servlet-name>SignupServlet</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
 </web-app>
